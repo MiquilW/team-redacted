@@ -49,8 +49,11 @@ console.log("api activated 0_0");
 axios.post('https://explorer.natureserve.org/api/data/search', data, { headers })
   .then(response => {
     // Handle successful response
-    console.log(response.data);
-    return response.data
+
+
+    let animal = response.data.results[0].primaryCommonName;
+    console.log(animal);
+    return animal
   })
   .catch(error => {
     // Handle error
