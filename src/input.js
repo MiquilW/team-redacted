@@ -81,6 +81,9 @@ const Input = () =>{
         
 
         // Call function to run script with input data
+        if (place === '') {
+          return;
+        }
         runScriptWithInput(place); 
       }
 

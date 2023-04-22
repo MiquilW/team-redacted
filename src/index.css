@@ -45,4 +45,5 @@ label[for="location"] {
 #submit:hover{
   background-color: #61DBFB; /* Green */
   color: white;
+  cursor: pointer;
 }

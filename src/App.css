@@ -59,4 +59,9 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+  transition-duration: 0.4s;
+}
+
+.back:hover {
+  color: black;
 }
