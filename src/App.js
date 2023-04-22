@@ -1,5 +1,5 @@
 import './App.css';
-import enter from './input';
+import Enter from './input';
 
 function App() {
 
@@ -10,8 +10,14 @@ function App() {
 
 
     <div className="App">
+      
+      <Enter />
+
+
       <header className="App-header">
-        <enter />
+
+        
+        
       </header>
     </div>
   );

@@ -1,4 +1,4 @@
-const enter = () =>{
+const Enter = () =>{
 
     const handleClick = () => {
         const textInput = document.getElementById('location').value;
@@ -16,4 +16,4 @@ const enter = () =>{
     );
 }
 
-export default input
+export default Enter;
