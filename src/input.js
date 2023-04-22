@@ -15,6 +15,18 @@ const Input = () =>{
           this.rear =0
     }
   
+    getItems() {
+      if (this.num_items === 0) {
+        return [];
+      }
+      if (this.front < this.rear) {
+        return this.items.slice(this.front, this.rear);
+      } else {
+        return this.items.slice(this.front).concat(this.items.slice(0, this.rear));
+      }
+    }
+
+
     is_empty(){
       if (this.num_items === 0){
         return true}
@@ -49,13 +61,12 @@ const Input = () =>{
       }
     
   }
-    let q = new Queue(3)
-    q.enqueue(5)
-    q.enqueue(6)
-    q.enqueue(7)
+
     
 
+    let q =new Queue(3)
 
+  
     const [place, setPlace] = useState('');
     const [animal, setAnimal] = useState('');
     const [visible, setVisible] = useState(false);
@@ -71,7 +82,13 @@ const Input = () =>{
         let result =  await getAnimal(event);
         setAnimal(result)
         setVisible(true);
-        
+
+        if (q.is_full() === true){
+          q.dequeue()
+          q.enqueue(animal)
+        }
+
+        q.enqueue(animal)
         console.log(result);
       }
 
