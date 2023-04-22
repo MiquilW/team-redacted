@@ -11,12 +11,12 @@ function App() {
 
     <div className="App">
       
-      <Enter />
+      
 
 
       <header className="App-header">
 
-        
+      <Enter />
         
       </header>
     </div>
