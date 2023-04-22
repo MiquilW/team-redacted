@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-export function getAnimal(city) {
+export async function getAnimal(city) {
 // Set the headers and body for the POST request
 const headers = {
   'Accept': 'application/json', 
@@ -46,20 +46,34 @@ console.log("api activated 0_0");
 
 // Make a POST request to a URL
 
-axios.post('https://explorer.natureserve.org/api/data/search', data, { headers })
-  .then(response => {
-    // Handle successful response
+// axios.post('https://explorer.natureserve.org/api/data/search', data, { headers })
+//   .then(response => {
+//     // Handle successful response
 
 
-    let animal = response.data.results[0].primaryCommonName;
-    console.log(animal);
-    return animal
-  })
-  .catch(error => {
-    // Handle error
-    console.log(error);
-    return error.response
-    //console.log(error.response)
-  });
+//     let animal = response.data.results[0].primaryCommonName;
+//     console.log(animal);
+//     return animal
+//   })
+//   .catch(error => {
+//     // Handle error
+//     console.log(error);
+//     return error.response
+//     //console.log(error.response)
+//   });
+
+
+
+
+  
+try {
+  const response = await axios.post('https://explorer.natureserve.org/api/data/search', data, { headers });
+  let animal = response.data.results[0].primaryCommonName;
+  console.log(animal);
+  return animal;
+} catch (error) {
+  console.log(error);
+  return error.response;
+}
 }
 
