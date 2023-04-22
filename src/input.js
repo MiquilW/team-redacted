@@ -5,7 +5,7 @@ import Species from './Species.js';
 
 const Input = () =>{
 
-    const [place,setPlace] = useState('');
+    const [place, setPlace] = useState('');
     const [animal, setAnimal] = useState('');
     const [visible, setVisible] = useState(false);
 
@@ -14,7 +14,7 @@ const Input = () =>{
         console.log('User input:', textInput);
       };
 
-       async function runScriptWithInput(event){
+       async function runScriptWithInput(event) {
         console.log("DO API STUFF EVENTUALLY, Argument is " + event);
         //set visibility of form to off
         let result =  await getAnimal(event);
@@ -32,16 +32,26 @@ const Input = () =>{
         // Call function to run script with input data
         runScriptWithInput(place); 
       }
+
+      // Resets all values
+      function handleBack(event) {
+        setPlace('');
+        setAnimal('');
+        setVisible(false);
+      }
       
     return(
       <div>
         {
         visible ? (
-          <Species
-            image=''
-            name={animal}
-          >
-          </Species>
+          <div>
+            <button onClick={handleBack}>Back</button>
+            <Species
+              image=''
+              name={animal}
+            >
+            </Species>
+          </div>
         ) : null
         }
         {
