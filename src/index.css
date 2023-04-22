@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input[type=text] {
+  
+  border: none;
+  position:absolute;
+  top:53%;
+  right: 44%;
+}
+
+
+
+label[for="location"] {
+  position:relative;
+}
+
+#submit{
+  position: absolute;
+  top: 57%;
+  right: 48%
+}
