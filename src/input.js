@@ -34,7 +34,7 @@ const Input = () =>{
       }
 
       // Resets all values
-      function handleBack(event) {
+      function handleBack() {
         setPlace('');
         setAnimal('');
         setVisible(false);
@@ -42,10 +42,10 @@ const Input = () =>{
       
     return(
       <div>
-        {
+        { 
         visible ? (
           <div>
-            <button onClick={handleBack}>Back</button>
+            <button className='back' onClick={handleBack}>Back</button>
             <Species
               image=''
               name={animal}
@@ -64,7 +64,6 @@ const Input = () =>{
                 Submit
               </button>
             </form>
-            <p>Species: {animal}</p>
           </div>
           )
         }

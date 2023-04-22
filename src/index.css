@@ -34,9 +34,7 @@ label[for="location"] {
 }
 
 #submit{
-  position: absolute;
-  top: 57%;
-  right: 48%;
+  margin-top: 15px;
   border: none;
   border-radius: 4px;
   transition-duration: 0.4s;
