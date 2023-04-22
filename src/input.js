@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import {getAnimal} from './NatureApi.mjs'
+
 
 const Input = () =>{
 
@@ -11,6 +13,9 @@ const Input = () =>{
 
       function runScriptWithInput(event){
         console.log("DO API STUFF EVENTUALLY, Argument is " + event);
+        //set visibility of form to off
+        let result =  getAnimal(event);
+        console.log(result);
       }
 
       function handleSubmit(event) {
@@ -34,5 +39,5 @@ const Input = () =>{
 }
 
 
-export default Input;
+export default Input
 
