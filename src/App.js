@@ -1,5 +1,7 @@
 import './App.css';
+
 import Input from './input';
+
 
 function App() {
 
@@ -10,8 +12,14 @@ function App() {
 
 
     <div className="App">
+      
+      
+
+
       <header className="App-header">
+
         <Input />
+
       </header>
     </div>
   );

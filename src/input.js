@@ -1,8 +1,8 @@
-import {useState} from 'react'
+import {useState} from 'react';
 
 const Input = () =>{
 
-    const [place, setPlace] = useState('');
+    const [place,setPlace] = useState('');
 
     const handleClick = () => {
         const textInput = document.getElementById('location').value;
@@ -33,4 +33,6 @@ const Input = () =>{
     );
 }
 
-export default Input
+
+export default Input;
+
