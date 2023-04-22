@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import {getAnimal} from './NatureApi.mjs'
+import Species from './Species.js';
 
 
 const Input = () =>{
 
     const [place,setPlace] = useState('');
-    const[animal, setAnimal] = useState('');
-    
-
+    const [animal, setAnimal] = useState('');
+    const [visible, setVisible] = useState(false);
 
     const handleClick = () => {
         const textInput = document.getElementById('location').value;
@@ -19,10 +19,9 @@ const Input = () =>{
         //set visibility of form to off
         let result =  await getAnimal(event);
         setAnimal(result)
+        setVisible(true);
         
         console.log(result);
-        
-        
       }
 
       function handleSubmit(event) {
@@ -36,17 +35,31 @@ const Input = () =>{
       
     return(
       <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="location">Enter location:</label>
-          <input type="text" id="location" value={place} onChange={(event) => setPlace(event.target.value)} />
-          <button id="submit" type="submit" onClick={handleClick}>
-            Submit
-          </button>
-        </form>
-
-        <p> animal : {animal}</p>
-        </div>
- 
+        {
+        visible ? (
+          <Species
+            image=''
+            name={animal}
+          >
+          </Species>
+        ) : null
+        }
+        {
+          visible ? null : (
+            <div>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="location">Enter location:</label>
+              <input type="text" id="location" value={place} onChange={(event) => setPlace(event.target.value)} />
+              <button id="submit" type="submit" onClick={handleClick}>
+                Submit
+              </button>
+            </form>
+            <p>Species: {animal}</p>
+          </div>
+          )
+        }
+      </div>
+    
     );
 }
 
