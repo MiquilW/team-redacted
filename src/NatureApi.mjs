@@ -1,10 +1,13 @@
-// Import axios library
-
+// Import axios library and our input string
+//import City2  from './input.js';
 import axios from 'axios';
 
+//let City2 = "San Diego";
 
 
 
+
+export function getAnimal(city) {
 // Set the headers and body for the POST request
 const headers = {
   'Accept': 'application/json', 
@@ -21,7 +24,7 @@ const data = {
   
       {
     "paramType" : "quickSearch",
-    "searchToken" : "San Diego"
+    "searchToken" : city,
   }
   
   ],
@@ -42,14 +45,18 @@ const data = {
 console.log("api activated 0_0");
 
 // Make a POST request to a URL
+
 axios.post('https://explorer.natureserve.org/api/data/search', data, { headers })
   .then(response => {
     // Handle successful response
     console.log(response.data);
+    return response.data
   })
   .catch(error => {
     // Handle error
     console.log(error);
+    return error.response
     //console.log(error.response)
   });
+}
 
