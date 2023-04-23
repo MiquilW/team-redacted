@@ -64,14 +64,15 @@ const Input = () =>{
 
     
 
-    let q =new Queue(3)
-
   
+
+    const[myQueue, setMyQueue] = useState(new Queue(3))
     const [place, setPlace] = useState('');
     const [animal, setAnimal] = useState('');
     const [visible, setVisible] = useState(false);
 
     const handleClick = () => {
+      
         const textInput = document.getElementById('location').value;
         console.log('User input:', textInput);
       };
@@ -83,13 +84,21 @@ const Input = () =>{
         setAnimal(result)
         setVisible(true);
 
-        if (q.is_full() === true){
-          q.dequeue()
-          q.enqueue(animal)
+    
+
+        if (myQueue.is_full() === true){
+          myQueue.dequeue()
         }
 
-        q.enqueue(animal)
+        myQueue.enqueue(result)
+        setMyQueue(myQueue)
+        
+
         console.log(result);
+        
+        
+          
+        
       }
 
       function handleSubmit(event) {
@@ -135,6 +144,12 @@ const Input = () =>{
                 Submit
               </button>
             </form>
+            <p>
+              Previous Searches:
+        {myQueue.getItems().map((item, index) => (
+          <p key={index}>{item}</p>
+        ))}
+      </p>
           </div>
           )
         }
