@@ -147,10 +147,13 @@ const Input = () =>{
             <p>
               Previous Searches:
         {myQueue.getItems().map((item, index) => (
-          <p key={index}>{item}</p>
+          <li className='prev' key={index}>{item}</li>
         ))}
       </p>
           </div>
+
+
+
           )
         }
       </div>
